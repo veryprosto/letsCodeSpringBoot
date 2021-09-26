@@ -1,4 +1,4 @@
-<html>
+<html">
 
 <body>
 <div>
@@ -8,7 +8,7 @@
     </form>
 </div>
 <div>
-    <form method="post" action="/">
+    <form method="post">
         <input type="text" name="text" placeholder="Введите сообщение"/>
         <input type="text" name="tag" placeholder="Тэг">
         <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
@@ -26,6 +26,7 @@
         <b>{{id}}</b>
         <span>{{text}}</span>
         <i>{{tag}}</i>
+        <strong>{{authorName}}</strong>
     </div>
 {{/messages}}
 </body>
