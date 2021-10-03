@@ -9,7 +9,7 @@ import ru.veryprosto.letsCodeSpringBoot.repos.UserRepo;
 
 @Service
 public class UserService implements UserDetailsService {
-    @Autowired//вариант с этой аннотацией считается устаревшим, можно убрать аннотацию и создать конструктор с этим полем
+    @Autowired
     private UserRepo userRepo;
 
     @Override

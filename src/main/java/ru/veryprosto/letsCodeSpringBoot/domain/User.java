@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
-@Table(name = "usr")//как говорит летскод постгрес не очень любит когда название совпадает с какимито ключевыми словами, а user думаю у него уже где то есть
+@Table(name = "usr")
 public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,9 +17,8 @@ public class User implements UserDetails {
     private String password;
     private boolean active;
 
-    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)//эта аннотация позволяет избавиться от создания отдельной таблицы по хранению енама
-    // fetch - жадная или ленивая подгрузка(жадная быстрее когда мало данных) а ленивая только если большие данные которые не всегда нужны
-    @CollectionTable(name="user_role", joinColumns = @JoinColumn(name="user_id"))//данное поле будет храниться в отдельной таблице для которой мы не описывали мэппинг
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
